@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         //長按按鈕後
         Btn_call.setOnLongClickListener(new HoldListener());
         Btn_call.setOnTouchListener(new touchListener());
+
         testview_whosecall.setMovementMethod(new ScrollingMovementMethod());
 
 //        //按鈕點擊後
@@ -106,9 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     // 畫面顯示誰正在說話
                     String text = "<font color='red'>" + talker_name + " stop talking..." + "</font><br>";
                     testview_whosecall.append(Html.fromHtml(text));
-
-
-
+                    isBtnPressed = false;
                 }
             }
             return false;
