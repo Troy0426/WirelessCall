@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.SpannableString;
 import android.text.method.ScrollingMovementMethod;
 import android.text.style.ForegroundColorSpan;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // 變數各自對應的物件
-        Btn_call           = (ImageButton) findViewById(R.id.Btn_call);
+        Btn_call           = (ImageButton) findViewById(R.id.btn_call);
         ET_name            = (EditText) findViewById(R.id.editText);
         testview_whosecall = (TextView) findViewById(R.id.textview_whosecall);
 
@@ -80,8 +81,9 @@ public class MainActivity extends AppCompatActivity {
             // 取得說話者的名稱及WIFI位址
             String talker_name = person.getName();
             // 畫面顯示誰正在說話
-            testview_whosecall.append(talker_name + " is talking..." + "\n" );
-            testview_whosecall.setTextColor(Color.BLUE);
+            String text = "<font color='blue'>" + talker_name + " is talking..." + "</font><br>";
+            testview_whosecall.append(Html.fromHtml(text));
+
 
 
             return true;
@@ -102,8 +104,9 @@ public class MainActivity extends AppCompatActivity {
                     // 取得說話者的名稱及WIFI位址
                     String talker_name = person.getName();
                     // 畫面顯示誰正在說話
-                    testview_whosecall.append(talker_name + " stop talking..." + "\n" );
-                    testview_whosecall.setTextColor(Color.RED);
+                    String text = "<font color='red'>" + talker_name + " stop talking..." + "</font><br>";
+                    testview_whosecall.append(Html.fromHtml(text));
+
 
 
                 }
